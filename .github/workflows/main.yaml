@@ -92,6 +92,10 @@ jobs:
          
       # - name: Stop and remove  container if running
       #   run: |
+      - name: Remove existing container (if any)
+        run: |
+             docker rm -f flipkart || true
+
       #    docker ps -q --filter "name=filpkart" | grep -q . && docker stop filpkart && docker rm -fv filpkart
       - name: Run Docker Image to serve users
         run: |
